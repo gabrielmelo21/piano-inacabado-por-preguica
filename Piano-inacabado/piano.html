@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Jock in po</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Piano</h1>
+    </br>
+
+
+    <br>
+    <br>
+    <br>
+    <div style="display: inline-block;margin-left: 30%;">
+        <img src="xilantrol/do.png" width='20%' height="20%" id='do'>
+        <img src="xilantrol/re.png" width='20%' height="20%" id='re'>
+        <img src="xilantrol/mi.png" width='20%' height="20%" id='mi'>
+        <img src="xilantrol/fa.png" width='20%' height="20%" id='fa'>
+    </div>
+
+
+    <audio controls id="myAudio" style="margin-left: 7000px;position: absolute;">
+        <source src="xilantrol/do.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls id="myAudio2" style="margin-left: 7000px;position: absolute;">
+        <source src="xilantrol/re.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    </center>
+    <script>
+        let doo, re, mi, fa, sol, la, si;
+        doo = document.getElementById("do");
+        re = document.getElementById("re");
+        mi = document.getElementById("mi");
+        fa = document.getElementById("fa");
+
+
+        function keyPressed(evt) {
+            evt = evt || window.event;
+            var key = evt.keyCode || evt.which;
+            return String.fromCharCode(key);
+        }
+
+        document.onkeypress = function(evt) {
+            var str = keyPressed(evt);
+
+
+            // APERTEI A NOTA DO 
+            if (str == 'z') {
+                var myMusic = document.getElementById('myAudio');
+                myMusic.play();
+                doo.src = "xilantrol/do-press.png";
+
+            }
+
+            // APERTEI A NOTA DO  
+            if (str == 'x') {
+                var myMusic2 = document.getElementById('myAudio2');
+                myMusic2.play();
+                re.src = "xilantrol/re-press.png";
+            }
+
+            // APERTEI A NOTA DO  
+            if (str == 'c') {
+                //var myMusic2 = document.getElementById('myAudio2');
+                //myMusic2.play();
+                mi.src = "xilantrol/mi-press.png";
+            }
+
+            // APERTEI A NOTA DO  
+            if (str == 'v') {
+                //var myMusic2 = document.getElementById('myAudio2');
+                //myMusic2.play();
+                fa.src = "xilantrol/fa-press.png";
+            }
+
+
+
+            // VOLTA  todas teclas 
+            document.onkeyup = function() {
+
+                doo.src = "xilantrol/do.png";
+                re.src = "xilantrol/re.png";
+                mi.src = "xilantrol/mi.png";
+                fa.src = "xilantrol/fa.png";
+            }
+
+        };
+    </script>
+</body>
+
+</html>
